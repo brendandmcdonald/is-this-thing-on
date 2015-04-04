@@ -11,6 +11,22 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
     
+    
+    
+    // Add a button to increase the speed of playback
+        // TODO: Add the rabbit button to the correnct screen on the storyboard
+        // TODO: Add contraints to the button to have it locked to the top right of the screen
+        // TODO: Add an action to the button to connect it to our PlaySoundsViewController
+        // TODO: Make the button play the audio clip at 2.0x
+    
+    // Add a stop button to stop any audio from playing
+        // TODO: Add a stop button to the correct screen on the storyboard
+        // TODO: Add contraints to the button to lock it to the bottom center of the screen
+        // TODO: Make the button initially hidden or deactivated, but then unhides when audio is playing.
+        // TODO: Add an action to the button to connect it to our PlaySoundsViewController
+        // TODO: Have the button stop all the audio playing back
+    
+    
     var audioPlayer:AVAudioPlayer!
 
     override func viewDidLoad() {
@@ -19,12 +35,11 @@ class PlaySoundsViewController: UIViewController {
         if var filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3"){
             
             //Convert the filetype of filePath from an NSString to an NSURL so it can be used to initialize the AVAudioPlayer
-            //let fileUrl = NSURL(string: filePath)
-            
             var filePathUrl = NSURL.fileURLWithPath(filePath)
             
             // Create instance of AVAudioPlayer
             audioPlayer = AVAudioPlayer(contentsOfURL: filePathUrl, error: nil)
+            audioPlayer.enableRate = true
             
         }else{
             println("the filepath is empty")
@@ -33,14 +48,18 @@ class PlaySoundsViewController: UIViewController {
     }
     
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func playAudioSlow(sender: UIButton) {
+        
+        // it's a best practice to stop the audio player before beginning to play it.
+        audioPlayer.stop()
+        audioPlayer.rate = 0.75
         audioPlayer.play()
+        
     }
     
 
