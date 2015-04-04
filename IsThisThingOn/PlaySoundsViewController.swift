@@ -53,13 +53,36 @@ class PlaySoundsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func playAudio(audio: AVAudioPlayer, speed: Float){
+        audio.stop()
+        audio.rate = speed
+        audio.play()
+    }
+    
+    
     @IBAction func playAudioSlow(sender: UIButton) {
         
         // it's a best practice to stop the audio player before beginning to play it.
         audioPlayer.stop()
         audioPlayer.rate = 0.75
         audioPlayer.play()
+    }
+    
+    @IBAction func playAudioFast(sender: UIButton) {
         
+        // it's a best practice to stop the audio player before beginning to play it.
+        //audioPlayer.stop()
+        //audioPlayer.rate = 2.0
+        //audioPlayer.play()
+        
+        playAudio(audioPlayer, speed: 2.0)
+        
+    }
+    
+    
+    @IBAction func stopAllAudio(sender: UIButton) {
+        
+        audioPlayer.stop()
     }
     
 
