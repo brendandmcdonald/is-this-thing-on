@@ -65,6 +65,9 @@ class PlaySoundsViewController: UIViewController {
         // it's a best practice to stop the audio player before beginning to play it.
         audioPlayer.stop()
         audioPlayer.rate = 0.75
+        
+        // v this resets the audio so it doesn't keep playing from a different source.
+        audioPlayer.currentTime = 0.0
         audioPlayer.play()
     }
     

@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        // TODO: Hide the stop button
         stopButton.hidden = true
         recordButton.enabled = true
     }
@@ -31,7 +30,6 @@ class ViewController: UIViewController {
     }
 
     @IBAction func recording(sender: UIButton) {
-        // TODO: record users voice
         println("it's working")
         currentlyRecording.hidden = false
         stopButton.hidden = false
