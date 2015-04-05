@@ -8,7 +8,7 @@
         <!--Record-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IsThisThingOn" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RecordSoundsViewController" customModule="IsThisThingOn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -27,13 +27,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7z-jY-DEw">
-                                <rect key="frame" x="260" y="485" width="80" height="80"/>
+                                <rect key="frame" x="260" y="490" width="80" height="80"/>
                                 <state key="normal" image="Stop">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SRc-4g-tUG"/>
-                                    <segue destination="H1a-zo-Q89" kind="show" id="maZ-AF-ZMA"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dye-b0-19m">
@@ -46,7 +45,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="p3x-7M-hvN" secondAttribute="centerY" id="6VQ-gz-cSG"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="U7z-jY-DEw" secondAttribute="bottom" constant="35" id="BYB-Is-nwX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="U7z-jY-DEw" secondAttribute="bottom" constant="30" id="BYB-Is-nwX"/>
                             <constraint firstAttribute="centerY" secondItem="p3x-7M-hvN" secondAttribute="centerY" id="CFy-0Y-BfI"/>
                             <constraint firstAttribute="centerX" secondItem="Dye-b0-19m" secondAttribute="centerX" id="Tax-Z6-FwU"/>
                             <constraint firstItem="Dye-b0-19m" firstAttribute="top" secondItem="p3x-7M-hvN" secondAttribute="bottom" constant="10" id="bB6-un-yU4"/>
@@ -64,6 +63,7 @@
                         <outlet property="currentlyRecording" destination="Dye-b0-19m" id="NLX-ZV-JD5"/>
                         <outlet property="recordButton" destination="p3x-7M-hvN" id="dqd-N4-RRh"/>
                         <outlet property="stopButton" destination="U7z-jY-DEw" id="x90-6n-9G8"/>
+                        <segue destination="H1a-zo-Q89" kind="show" identifier="stopRecording" id="sr0-7X-z1I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -83,7 +83,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8H-77-OJl">
-                                <rect key="frame" x="449" y="99" width="100" height="100"/>
+                                <rect key="frame" x="459" y="94" width="100" height="100"/>
                                 <state key="normal" image="Fast">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -92,7 +92,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Nt-NR-j0P">
-                                <rect key="frame" x="261" y="471" width="80" height="80"/>
+                                <rect key="frame" x="260" y="490" width="80" height="80"/>
                                 <state key="normal" image="Stop">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -101,7 +101,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3St-95-UTd">
-                                <rect key="frame" x="51" y="99" width="100" height="100"/>
+                                <rect key="frame" x="41" y="94" width="100" height="100"/>
                                 <state key="normal" image="Slow">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -112,12 +112,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3St-95-UTd" firstAttribute="top" secondItem="ddc-ua-crU" secondAttribute="bottom" constant="35" id="GEj-V0-2dv"/>
-                            <constraint firstAttribute="centerX" secondItem="9Nt-NR-j0P" secondAttribute="centerX" constant="-0.5" id="ZxK-cu-AJ3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="N8H-77-OJl" secondAttribute="trailing" constant="35" id="cU4-kl-dVt"/>
-                            <constraint firstItem="3St-95-UTd" firstAttribute="leading" secondItem="cz0-d0-QiB" secondAttribute="leadingMargin" constant="35" id="gdR-Vg-Chc"/>
-                            <constraint firstItem="N8H-77-OJl" firstAttribute="top" secondItem="ddc-ua-crU" secondAttribute="bottom" constant="35" id="rY9-HE-5zq"/>
-                            <constraint firstItem="Xb2-9f-BQn" firstAttribute="top" secondItem="9Nt-NR-j0P" secondAttribute="bottom" constant="49" id="sOZ-9W-Ue7"/>
+                            <constraint firstItem="3St-95-UTd" firstAttribute="top" secondItem="ddc-ua-crU" secondAttribute="bottom" constant="30" id="GEj-V0-2dv"/>
+                            <constraint firstAttribute="centerX" secondItem="9Nt-NR-j0P" secondAttribute="centerX" id="ZxK-cu-AJ3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="N8H-77-OJl" secondAttribute="trailing" constant="25" id="cU4-kl-dVt"/>
+                            <constraint firstItem="3St-95-UTd" firstAttribute="leading" secondItem="cz0-d0-QiB" secondAttribute="leadingMargin" constant="25" id="gdR-Vg-Chc"/>
+                            <constraint firstItem="N8H-77-OJl" firstAttribute="top" secondItem="ddc-ua-crU" secondAttribute="bottom" constant="30" id="rY9-HE-5zq"/>
+                            <constraint firstItem="Xb2-9f-BQn" firstAttribute="top" secondItem="9Nt-NR-j0P" secondAttribute="bottom" constant="30" id="sOZ-9W-Ue7"/>
                         </constraints>
                     </view>
                 </viewController>
