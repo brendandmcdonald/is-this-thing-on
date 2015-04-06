@@ -41,6 +41,7 @@
 		81376DD51ABBB87700C2423F /* IsThisThingOnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IsThisThingOnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81376DDA1ABBB87700C2423F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81376DDB1ABBB87700C2423F /* IsThisThingOnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsThisThingOnTests.swift; sourceTree = "<group>"; };
+		8153480C1AD1DF74003F19DC /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		81BE08981AD1C49800F3F99E /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +89,7 @@
 				81BE08981AD1C49800F3F99E /* RecordedAudio.swift */,
 				8131DF781AC38FC7005486AF /* PlaySoundsViewController.swift */,
 				81376DC91ABBB87700C2423F /* Main.storyboard */,
+				8153480C1AD1DF74003F19DC /* MyPlayground.playground */,
 				81376DCC1ABBB87700C2423F /* Images.xcassets */,
 				81376DCE1ABBB87700C2423F /* LaunchScreen.xib */,
 				81376DC31ABBB87700C2423F /* Supporting Files */,

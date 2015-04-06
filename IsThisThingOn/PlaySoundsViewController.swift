@@ -13,20 +13,17 @@ class PlaySoundsViewController: UIViewController {
     
     var audioPlayer:AVAudioPlayer!
     var receivedRecording:RecordedAudio!
+    
+    var audioEngine:AVAudioEngine!
+    var audioFile:AVAudioFile!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        if var filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3"){
-//            var filePathUrl = NSURL.fileURLWithPath(filePath)
-//        }else{
-//            println("the filepath is empty")
-//        }
-        
-        // Create instance of AVAudioPlayer
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedRecording.filePathUrl, error: nil)
         audioPlayer.enableRate = true
         
+        audioEngine = AVAudioEngine()
+        audioFile = AVAudioFile(forReading: receivedRecording.filePathUrl, error: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,16 +31,34 @@ class PlaySoundsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
     func playAudio(audio: AVAudioPlayer, speed: Float){
         audio.stop()
         // resets the audio to start from the beggining of the track. Without this, the audio started to play fast would then continue from the same point playing slow, or vice versa.
-        audioPlayer.currentTime = 0.0
+        audio.currentTime = 0.0
         audio.rate = speed
         audio.play()
     }
     
+    func playAudioWithVariablePitch(pitch: Float){
+        audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
+        
+        var audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        
+        var changePitchEffect = AVAudioUnitTimePitch()
+        changePitchEffect.pitch = pitch
+        audioEngine.attachNode(changePitchEffect)
+        
+        audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
+        audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        audioEngine.startAndReturnError(nil)
+        
+        audioPlayerNode.play()
+    }
     
     @IBAction func playAudioSlow(sender: UIButton) {
        playAudio(audioPlayer, speed: 0.5)
@@ -53,9 +68,18 @@ class PlaySoundsViewController: UIViewController {
         playAudio(audioPlayer, speed: 2.0)
     }
     
+    @IBAction func playChipmunkAudio(sender: UIButton) {
+        playAudioWithVariablePitch(1000)
+    }
+    
+    @IBAction func PlayDarthVaderAudio(sender: UIButton) {
+        playAudioWithVariablePitch(-1000)
+    }
     
     @IBAction func stopAllAudio(sender: UIButton) {
         audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
     }
     
 
