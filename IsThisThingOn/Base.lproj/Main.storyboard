@@ -41,13 +41,21 @@
                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tap to record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgf-Hn-DPI">
+                                <rect key="frame" x="251" y="407" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="p3x-7M-hvN" secondAttribute="centerY" id="6VQ-gz-cSG"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="U7z-jY-DEw" secondAttribute="bottom" constant="30" id="BYB-Is-nwX"/>
                             <constraint firstAttribute="centerY" secondItem="p3x-7M-hvN" secondAttribute="centerY" id="CFy-0Y-BfI"/>
+                            <constraint firstAttribute="centerX" secondItem="Wgf-Hn-DPI" secondAttribute="centerX" id="HMn-WG-aQb"/>
                             <constraint firstAttribute="centerX" secondItem="Dye-b0-19m" secondAttribute="centerX" id="Tax-Z6-FwU"/>
+                            <constraint firstItem="Wgf-Hn-DPI" firstAttribute="top" secondItem="p3x-7M-hvN" secondAttribute="bottom" constant="10" id="YRj-kr-IeG"/>
                             <constraint firstItem="Dye-b0-19m" firstAttribute="top" secondItem="p3x-7M-hvN" secondAttribute="bottom" constant="10" id="bB6-un-yU4"/>
                             <constraint firstAttribute="centerX" secondItem="p3x-7M-hvN" secondAttribute="centerX" constant="-1" id="rCH-Il-FP0"/>
                             <constraint firstAttribute="centerX" secondItem="U7z-jY-DEw" secondAttribute="centerX" id="rsH-jB-R4e"/>
@@ -61,6 +69,7 @@
                     <navigationItem key="navigationItem" title="Record" id="vzc-9V-SKk"/>
                     <connections>
                         <outlet property="currentlyRecording" destination="Dye-b0-19m" id="NLX-ZV-JD5"/>
+                        <outlet property="instructions" destination="Wgf-Hn-DPI" id="g8q-z6-uYp"/>
                         <outlet property="recordButton" destination="p3x-7M-hvN" id="dqd-N4-RRh"/>
                         <outlet property="stopButton" destination="U7z-jY-DEw" id="x90-6n-9G8"/>
                         <segue destination="H1a-zo-Q89" kind="show" identifier="stopRecording" id="sr0-7X-z1I"/>
