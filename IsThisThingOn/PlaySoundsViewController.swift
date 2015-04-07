@@ -33,7 +33,6 @@ class PlaySoundsViewController: UIViewController {
     
     func playAudio(audio: AVAudioPlayer, speed: Float){
         audio.stop()
-        // resets the audio to start from the beggining of the track. Without this, the audio started to play fast would then continue from the same point playing slow, or vice versa.
         audio.currentTime = 0.0
         audio.rate = speed
         audio.play()
